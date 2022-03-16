@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--TODO LIST-->
         <scene sceneID="i2x-xT-nO0">
             <objects>
                 <tableViewController id="rFP-BV-Qq6" customClass="TodoListTableViewController" customModule="TodoApp_ios_CoreData" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                             <outlet property="delegate" destination="rFP-BV-Qq6" id="I41-Dh-Kg3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="o93-S3-3ax">
+                    <navigationItem key="navigationItem" title="TODO LIST" id="o93-S3-3ax">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="hb7-eh-8wD">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" id="J8f-iU-bKX"/>
