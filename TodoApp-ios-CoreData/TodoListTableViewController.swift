@@ -59,16 +59,20 @@ class TodoListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "todo", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "todo", for: indexPath) as!
+        TodoTableViewCell
+        
         let todo = fetchedResultsController?.object(at: indexPath)
-        cell.textLabel?.text = todo!.title
+        
+        cell.title.text = todo!.title
+        cell.date.text = todo!.dates
         // Configure the cell...
         //let title = todo[indexPath.row].title
         
         //cell.textLabel?.text = title
         return cell
     }
-    
+
 
     /*
     // Override to support conditional editing of the table view.

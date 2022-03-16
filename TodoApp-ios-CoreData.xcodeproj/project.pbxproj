@@ -15,6 +15,7 @@
 		18F8CA5227E28BA300956C54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18F8CA5127E28BA300956C54 /* Assets.xcassets */; };
 		18F8CA5527E28BA300956C54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F8CA5327E28BA300956C54 /* LaunchScreen.storyboard */; };
 		18F8CA5D27E28C1400956C54 /* TodoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8CA5C27E28C1400956C54 /* TodoListTableViewController.swift */; };
+		18F8CA5F27E2AB9800956C54 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8CA5E27E2AB9800956C54 /* TodoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		18F8CA5427E28BA300956C54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18F8CA5627E28BA300956C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18F8CA5C27E28C1400956C54 /* TodoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableViewController.swift; sourceTree = "<group>"; };
+		18F8CA5E27E2AB9800956C54 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				18F8CA4727E28BA100956C54 /* SceneDelegate.swift */,
 				18F8CA4927E28BA100956C54 /* AddTodoViewController.swift */,
 				18F8CA5C27E28C1400956C54 /* TodoListTableViewController.swift */,
+				18F8CA5E27E2AB9800956C54 /* TodoTableViewCell.swift */,
 				18F8CA4B27E28BA100956C54 /* Main.storyboard */,
 				18F8CA5127E28BA300956C54 /* Assets.xcassets */,
 				18F8CA5327E28BA300956C54 /* LaunchScreen.storyboard */,
@@ -147,6 +150,7 @@
 				18F8CA5027E28BA100956C54 /* TodoApp_ios_CoreData.xcdatamodeld in Sources */,
 				18F8CA4A27E28BA100956C54 /* AddTodoViewController.swift in Sources */,
 				18F8CA5D27E28C1400956C54 /* TodoListTableViewController.swift in Sources */,
+				18F8CA5F27E2AB9800956C54 /* TodoTableViewCell.swift in Sources */,
 				18F8CA4627E28BA100956C54 /* AppDelegate.swift in Sources */,
 				18F8CA4827E28BA100956C54 /* SceneDelegate.swift in Sources */,
 			);

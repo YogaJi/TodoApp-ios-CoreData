@@ -16,23 +16,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="ecd-2V-vRF">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9Z-Fa-9eC">
+                                    <rect key="frame" x="21" y="12" width="33" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9C-JM-h2D">
+                                    <rect key="frame" x="304" y="11" width="68" height="22"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="X9Z-Fa-9eC" firstAttribute="leading" secondItem="ecd-2V-vRF" secondAttribute="leading" constant="21" id="1DY-GP-3gv"/>
+                                <constraint firstItem="F9C-JM-h2D" firstAttribute="top" secondItem="ecd-2V-vRF" secondAttribute="top" constant="11" id="Dpq-qE-nRs"/>
+                                <constraint firstAttribute="trailing" secondItem="F9C-JM-h2D" secondAttribute="trailing" constant="42" id="OKN-TV-J31"/>
+                                <constraint firstItem="F9C-JM-h2D" firstAttribute="centerY" secondItem="ecd-2V-vRF" secondAttribute="centerY" id="jcD-Ea-3v2"/>
+                                <constraint firstItem="X9Z-Fa-9eC" firstAttribute="centerY" secondItem="ecd-2V-vRF" secondAttribute="centerY" id="xqt-uV-kA3"/>
+                                <constraint firstItem="X9Z-Fa-9eC" firstAttribute="top" secondItem="ecd-2V-vRF" secondAttribute="top" constant="12" id="xxj-5h-b3J"/>
+                            </constraints>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todo" textLabel="HzR-6l-QBy" style="IBUITableViewCellStyleDefault" id="63g-tI-MXc">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todo" id="63g-tI-MXc" customClass="TodoTableViewCell" customModule="TodoApp_ios_CoreData" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="63g-tI-MXc" id="0CR-yY-Q4D">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HzR-6l-QBy">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhG-gW-4Cu">
+                                            <rect key="frame" x="26" y="11.5" width="33" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMc-fP-t19">
+                                            <rect key="frame" x="316" y="11.5" width="36" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="AhG-gW-4Cu" firstAttribute="centerY" secondItem="0CR-yY-Q4D" secondAttribute="centerY" id="6vB-rA-3IK"/>
+                                        <constraint firstItem="AhG-gW-4Cu" firstAttribute="leading" secondItem="0CR-yY-Q4D" secondAttribute="leading" constant="26" id="PLZ-wC-fwX"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="zMc-fP-t19" secondAttribute="trailing" constant="42" id="TNA-ic-kdn"/>
+                                        <constraint firstItem="zMc-fP-t19" firstAttribute="centerY" secondItem="0CR-yY-Q4D" secondAttribute="centerY" id="c56-P7-7gH"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="date" destination="zMc-fP-t19" id="SgW-Pw-50K"/>
+                                    <outlet property="title" destination="AhG-gW-4Cu" id="MJN-ZE-HEi"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -50,7 +92,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dF-Ax-Hz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-641" y="84"/>
+            <point key="canvasLocation" x="-642.02898550724638" y="83.705357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mNw-X5-d7c">
@@ -92,8 +134,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdl-IK-f28">
-                                <rect key="frame" x="45" y="242" width="129" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdl-IK-f28">
+                                <rect key="frame" x="45" y="242" width="103" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -133,7 +175,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Todo" id="Wnb-dM-iAm"/>
                     <connections>
-                        <outlet property="addDescription" destination="DUz-sv-9LZ" id="aLs-Ea-Lh7"/>
+                        <outlet property="addDate" destination="DUz-sv-9LZ" id="3ih-an-ayD"/>
                         <outlet property="addTitle" destination="WaX-XS-7d3" id="yr8-Zi-CWP"/>
                     </connections>
                 </viewController>
