@@ -8,7 +8,7 @@
 import UIKit
 
 class TodoTableViewCell: UITableViewCell {
-
+    //link data with UILabel
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var title: UILabel!
     override func awakeFromNib() {
@@ -19,7 +19,7 @@ class TodoTableViewCell: UITableViewCell {
     // Configure the view for the selected state
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        //strikeThroughText(self.title.text!)
+        // selected to have strike out animation
         if(selected){
             let title = NSAttributedString(string: self.title.text!,
                                            attributes:[.strikethroughColor: UIColor.gray,
@@ -28,6 +28,7 @@ class TodoTableViewCell: UITableViewCell {
             self.title?.attributedText = title
             
         }
+        
         UIView.animate(withDuration: 0.1, animations: {
             self.title.transform = self.title.transform.scaledBy(x: 1.2, y: 1.2)
                     }, completion: { (success) in

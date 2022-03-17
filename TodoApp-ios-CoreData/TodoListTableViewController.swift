@@ -8,35 +8,38 @@
 import UIKit
 import CoreData
 class TodoListTableViewController: UITableViewController {
-    
+    //register persistent container
     var persistentContainer: NSPersistentContainer!
-    
+    //register the controller that use to manage the results of a Core Data fetch request and to display data
     var fetchedResultsController: NSFetchedResultsController<Todos>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //set table view style:
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
         self.tableView.rowHeight = 46.0
-        //self.tableView.separatorInset = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 1)
         self.tableView.separatorColor = UIColor.lightGray
         
+        //set persistent container and make request
         let moc = persistentContainer.viewContext
         let request = NSFetchRequest<Todos>(entityName: "Todos")
 
         request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        
         //load as fetched
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController?.delegate = self
+        //do fetch
         do{
             try fetchedResultsController?.performFetch()
         }catch {
             print("fetch request failed")
         }
-
     }
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -47,81 +50,51 @@ class TodoListTableViewController: UITableViewController {
         return fetchedResultsController?.fetchedObjects?.count ?? 0
     }
 
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {//link the table view cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "todo", for: indexPath) as!
         TodoTableViewCell
         
         let todo = fetchedResultsController?.object(at: indexPath)
-        
+        //set core data to table view cell
         cell.title.text = todo!.title
         cell.date.text = todo!.dates
+        //change table view cell style with be selected
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
     
         return cell
     }
 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-     //Override to support editing the table view.
+    //Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+            //use persistent container function to delete the row of data
             let context = appDelegate.persistentContainer.viewContext
 
             context.delete((self.fetchedResultsController?.object(at: indexPath))!)
 
-              appDelegate.saveContext()
+            appDelegate.saveContext()
 
         } else if editingStyle == .insert {
 
         }
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-
-        
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
+     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        //use segue to link to the add todo view controller and register persistent container for the add todo segue
         if let addTodo = segue.destination as? AddTodoViewController {
             addTodo.persistentContainer = persistentContainer
         }
     }
     
-
 }
+
 //MARK: - Fetched Results Controller
+
 extension TodoListTableViewController: NSFetchedResultsControllerDelegate{
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()

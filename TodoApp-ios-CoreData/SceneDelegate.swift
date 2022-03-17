@@ -17,8 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
-        let persistentContainer = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
         
+        //add persistent container to set up core data stack
+        let persistentContainer = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+        //link navigation controller and the main table view controller,
+        //set todoList table view persistent container
         let navController = window?.rootViewController as! UINavigationController
         let todoView = navController.topViewController as! TodoListTableViewController
         todoView.persistentContainer = persistentContainer
