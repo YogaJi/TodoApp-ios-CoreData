@@ -10,7 +10,7 @@ import CoreData
 class TodoListTableViewController: UITableViewController {
     
     var persistentContainer: NSPersistentContainer!
-    //var todo = [Todos]()
+    
     var fetchedResultsController: NSFetchedResultsController<Todos>?
     
     override func viewDidLoad() {
@@ -30,20 +30,6 @@ class TodoListTableViewController: UITableViewController {
         }
 
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        let request: NSFetchRequest<Todos> = Todos.fetchRequest()
-//        let moc = persistentContainer.viewContext
-//
-//        guard
-//            let results = try? moc.fetch(request)
-//        else {return}
-//
-//        todo = results
-//
-//        tableView.reloadData()
-//    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,7 +40,6 @@ class TodoListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return fetchedResultsController?.fetchedObjects?.count ?? 0
-        //return todo.count
     }
 
     
@@ -66,10 +51,7 @@ class TodoListTableViewController: UITableViewController {
         
         cell.title.text = todo!.title
         cell.date.text = todo!.dates
-        // Configure the cell...
-        //let title = todo[indexPath.row].title
-        
-        //cell.textLabel?.text = title
+
         return cell
     }
 
@@ -81,19 +63,29 @@ class TodoListTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
-    // Override to support editing the table view.
+     //Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
+            let context = appDelegate.persistentContainer.viewContext
+
+            context.delete((self.fetchedResultsController?.object(at: indexPath))!)
+
+              appDelegate.saveContext()
+
+        } else if editingStyle == .insert {
+
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    }
+
+        
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -140,7 +132,7 @@ extension TodoListTableViewController: NSFetchedResultsControllerDelegate{
         case .delete:
             guard let deleteIndex = indexPath
                 else{return}
-            tableView.deleteRows(at: [deleteIndex], with: .automatic)
+            tableView.deleteRows(at: [deleteIndex], with: .fade)
         case .move:
             guard let fromIndex = indexPath,
                   let toIndex = newIndexPath
