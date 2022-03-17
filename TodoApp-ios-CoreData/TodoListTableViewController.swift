@@ -15,6 +15,11 @@ class TodoListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //set table view style:
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
+        self.tableView.rowHeight = 46.0
+        //self.tableView.separatorInset = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 1)
+        self.tableView.separatorColor = UIColor.lightGray
         
         let moc = persistentContainer.viewContext
         let request = NSFetchRequest<Todos>(entityName: "Todos")
@@ -51,7 +56,8 @@ class TodoListTableViewController: UITableViewController {
         
         cell.title.text = todo!.title
         cell.date.text = todo!.dates
-
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+    
         return cell
     }
 
@@ -82,7 +88,7 @@ class TodoListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
     }
 
         

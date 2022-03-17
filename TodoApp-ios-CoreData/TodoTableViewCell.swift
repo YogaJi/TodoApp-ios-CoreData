@@ -26,6 +26,7 @@ class TodoTableViewCell: UITableViewCell {
                                                        .strikethroughStyle:2,
                                                        .strokeColor:UIColor.gray])
             self.title?.attributedText = title
+            
         }
         UIView.animate(withDuration: 0.1, animations: {
             self.title.transform = self.title.transform.scaledBy(x: 1.2, y: 1.2)
